@@ -7,4 +7,4 @@ def card_hide(card):
 
 answer = card_hide("20401284125325")
 print(answer)
-#censors the code only showing last 4 digitss
+#censors the code only showing last 4 digits

@@ -16,7 +16,6 @@ char_to_dots = {
 def encode_morse(message):
     message = message.replace("", " ")[1: -1].upper()
     message = message.replace("  ", "/")
-    print(message)
     for key in message:
         message = message.replace(key, char_to_dots[key])
     return message  
