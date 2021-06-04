@@ -1,8 +1,6 @@
 import tkinter as tk
 import csv
 
-
-
 def importCSV(usernames, passwords):
     with open('CSV/logins.csv', 'r') as file:
         for line in file.readlines():
@@ -10,9 +8,6 @@ def importCSV(usernames, passwords):
             usernames.append(split[0])
             passwords.append(split[1][:-1])
         return usernames, passwords
-
-            
-
 
 def submitForm(usernames, passwords):
     for itemNum in range(len(usernames)):
