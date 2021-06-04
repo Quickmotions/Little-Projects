@@ -18,7 +18,7 @@ def submitForm(usernames, passwords,  entryName, entryPassword):
             exit() #continue program with login
         else:
             print("incorrect")
-def createNew(usernames, passwords, root):
+def createNew(root):
     root.destroy()
     root2 = tk.Tk()
     enterName = tk.Entry(root2)
@@ -27,7 +27,7 @@ def createNew(usernames, passwords, root):
     enterPasswordLabel = tk.Label(root2, text="Enter Password:")
     ConfirmPassword = tk.Entry(root2, show="*")
     ConfirmPasswordLabel = tk.Label(root2, text="Confirm Password:")
-    ConfirmButton = tk.Button(root2,text="Submit",command= lambda: ConfirmNew(usernames, passwords, enterPassword, enterName, ConfirmPassword, root2))
+    ConfirmButton = tk.Button(root2,text="Submit",command= lambda: ConfirmNew(enterPassword, enterName, ConfirmPassword, root2))
 
     enterNameLabel.grid(row=0)
     enterName.grid(row=0,column=1)
@@ -39,7 +39,7 @@ def createNew(usernames, passwords, root):
     root2.mainloop()
 
 
-def ConfirmNew(usernames, passwords,enterPassword, enterName, ConfirmPassword, root2):
+def ConfirmNew(enterPassword, enterName, ConfirmPassword, root2):
     if enterPassword.get() == ConfirmPassword.get():
         with open('CSV/logins.csv', 'a+', newline ='') as file: 
             from csv import writer
@@ -56,7 +56,7 @@ def startMain():
         usernames, passwords = [], []
         usernames, passwords = importCSV(usernames, passwords)
         root = tk.Tk()
-        createButton = tk.Button(root, text="Create New", command= lambda: createNew(usernames, passwords, root))
+        createButton = tk.Button(root, text="Create New", command= lambda: createNew(root))
         labelName = tk.Label(root, text="Username:")
         labelPassword = tk.Label(root, text="Password:")
         entryName = tk.Entry(root)
