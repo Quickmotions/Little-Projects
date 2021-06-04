@@ -20,7 +20,6 @@ def submitForm(usernames, passwords):
 if __name__ == "__main__":
     usernames, passwords = [], []
     usernames, passwords = importCSV(usernames, passwords)
-    print(passwords,usernames)
     root = tk.Tk()
     labelName = tk.Label(root, text="Username:")
     labelPassword = tk.Label(root, text="Password:")
