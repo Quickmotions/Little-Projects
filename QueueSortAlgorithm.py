@@ -18,17 +18,6 @@ def optimal(customers, n):
         l[l.index(min(l))]+=i
     return max(l)
 
-# new solution
-
-def new(customers, n):
-    queue = [0]*n
-    for customer in customers:
-        minTill = 0
-        for till in range(n):
-            if queue[till] < queue[minTill]:
-                minTill = till
-        queue[minTill] += customer
-    return max(queue)
 
 
 print(queue_time([2,2,3,3,4,4], 2)) #9
