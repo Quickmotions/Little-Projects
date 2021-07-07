@@ -1,22 +1,40 @@
-from unittest import test
 def queue_time(customers, n):
-    t = 0
-    largest = max(customers)
-    if n > 0:
-        
-        for c in customers:
-            n -= 1
-            t += c
-        
-        
-    return t
+    queue = []
+    for till in range(n):
+        queue.append(0)
+    for customer in customers:
+        minTill = 0
+        for till in range(n):
+            if queue[till] < queue[minTill]:
+                minTill = till
+        queue[minTill] += customer
+    return max(queue)
 
-test.assert_equals(queue_time([], 1), 0, "wrong answer for case with an empty queue")
-test.assert_equals(queue_time([5], 1), 5, "wrong answer for a single person in the queue")
-test.assert_equals(queue_time([2], 5), 2, "wrong answer for a single person in the queue")
-test.assert_equals(queue_time([1,2,3,4,5], 1), 15, "wrong answer for a single till")
-test.assert_equals(queue_time([1,2,3,4,5], 100), 5, "wrong answer for a case with a large number of tills")
-test.assert_equals(queue_time([2,2,3,3,4,4], 2), 9, "wrong answer for a case with two tills")
+#optimal solution
+
+def optimal(customers, n):
+    l=[0]*n
+    for i in customers:
+        l[l.index(min(l))]+=i
+    return max(l)
+
+# new solution
+
+def new(customers, n):
+    queue = [0]*n
+    for customer in customers:
+        minTill = 0
+        for till in range(n):
+            if queue[till] < queue[minTill]:
+                minTill = till
+        queue[minTill] += customer
+    return max(queue)
+
+
+print(queue_time([2,2,3,3,4,4], 2)) #9
+print(queue_time([2], 5))#2
+print(queue_time([1,2,3,4,5], 1)) #15
+print(queue_time([1,2,3,4,5], 100)) #5
 
 # There is a queue for the self-checkout tills at the supermarket. Your task is write a function to calculate the total time required for all the customers to check out!
 # input
