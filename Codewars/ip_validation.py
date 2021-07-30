@@ -14,14 +14,19 @@
 # determine if range of list is 3
 # test each item in list is between 0 and 255
 
-
+# my solution:
 def is_valid_IP(string):
     string = string.split('.')
     if len(string) != 4:
         return False
     for item in string:
         try:
+            for letter in item:
+                if letter == ' ':
+                    return False
             if int(item) > 255 or int(item) < 0:
+                return False
+            elif item[0] == '0' and len(item) > 1:
                 return False
             else:
                 pass
@@ -30,11 +35,24 @@ def is_valid_IP(string):
     return True
 
 
+# most efficient solution:
+def better_is_valid_IP(strng):
+    lst = strng.split('.')
+    passed = 0
+    for sect in lst:
+        if sect.isdigit():
+            if sect[0] != '0':
+                if 0 < int(sect) <= 255:
+                    passed += 1
+    return passed == 4
+
+
 print(
     is_valid_IP('12.255.56.1'),
     is_valid_IP(''),
     is_valid_IP('abc.def.ghi.jkl'),
     is_valid_IP('123.456.789.0'),
     is_valid_IP('12.34.56'),
-    is_valid_IP('12.34.56 .1')
+    is_valid_IP('12.34.56 .1'),
+    is_valid_IP('123.045.067.089')
 )
