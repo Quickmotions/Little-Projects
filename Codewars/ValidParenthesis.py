@@ -1,3 +1,4 @@
+# FERGUS HAAK 26/07/21
 # https://www.codewars.com/kata/52774a314c2333f0a7000688/train/python
 # work in progress
 def valid_parentheses(string):

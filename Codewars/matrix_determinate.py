@@ -1,3 +1,4 @@
+# FERGUS HAAK 20/07/21
 def determinant(matrix):
     group_values = []
     print(matrix)

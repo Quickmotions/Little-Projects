@@ -1,3 +1,4 @@
+# FERGUS HAAK 30/07/21
 # https://www.codewars.com/kata/515decfd9dcfc23bb6000006
 # Write an algorithm that will identify valid IPv4 addresses in dot-decimal format.
 # IPs should be considered valid if they consist of four octets, with values between 0 and 255, inclusive.
