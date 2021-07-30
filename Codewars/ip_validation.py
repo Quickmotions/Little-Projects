@@ -11,12 +11,23 @@
 # my plan:
 
 # split on dots
-# deternime if range of list is 3
+# determine if range of list is 3
 # test each item in list is between 0 and 255
 
 
 def is_valid_IP(string):
-    
+    string = string.split('.')
+    if len(string) != 4:
+        return False
+    for item in string:
+        try:
+            if int(item) > 255 or int(item) < 0:
+                return False
+            else:
+                pass
+        except:
+            return False
+    return True
 
 
 print(
@@ -24,5 +35,6 @@ print(
     is_valid_IP(''),
     is_valid_IP('abc.def.ghi.jkl'),
     is_valid_IP('123.456.789.0'),
-    is_valid_IP('12.34.56')
-    )
+    is_valid_IP('12.34.56'),
+    is_valid_IP('12.34.56 .1')
+)
